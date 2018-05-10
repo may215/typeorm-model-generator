@@ -37,8 +37,8 @@ before_install:
 - export LD_LIBRARY_PATH=/opt/oracle/instantclient_12_2:$LD_LIBRARY_PATH
 - npm install -g npm@5
 - npm install -g greenkeeper-lockfile@1
-- npm install mssql mysql oracledb pg sqlite3 --no-save
 before_script:
+- npm install mssql mysql oracledb pg sqlite3 --no-save
 - greenkeeper-lockfile-update
 - typings install
 - npm link typescript
