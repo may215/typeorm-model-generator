@@ -23,15 +23,10 @@
     "dependencies": {
         "change-case": "^3.0.2",
         "handlebars": "^4.0.11",
-        "mssql": "^4.0.4",
-        "mysql": "^2.15.0",
-        "oracledb": "^2.2.0",
-        "pg": "^7.4.0",
         "reflect-metadata": "^0.1.10",
         "typeorm": "^0.2.4",
         "typescript": "^2.8.3",
         "yargs": "^11.1.0",
-        "sqlite3": "^4.0.0",
         "yn": "^2.0.0"
     },
     "devDependencies": {
