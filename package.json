@@ -1,6 +1,6 @@
 {
     "name": "typeorm-model-generator",
-    "version": "0.2.16-no-engines",
+    "version": "0.2.16-no-engines.2",
     "description": "Generates models for TypeORM from existing databases.",
     "bin": "bin/typeorm-model-generator",
     "scripts": {
@@ -23,6 +23,9 @@
     "dependencies": {
         "change-case": "^3.0.2",
         "handlebars": "^4.0.11",
+        "mssql": "^4.1.0",
+        "mysql": "^2.15.0",
+        "pg": "^7.4.3",
         "reflect-metadata": "^0.1.10",
         "typeorm": "^0.2.4",
         "typescript": "^2.8.3",

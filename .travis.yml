@@ -38,7 +38,7 @@ before_install:
 - npm install -g npm@5
 - npm install -g greenkeeper-lockfile@1
 before_script:
-- npm install mssql mysql oracledb pg sqlite3 --no-save
+- npm install oracledb sqlite3 --no-save
 - greenkeeper-lockfile-update
 - typings install
 - npm link typescript
