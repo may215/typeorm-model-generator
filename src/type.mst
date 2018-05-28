@@ -1,7 +1,7 @@
 import {GraphQLFieldConfigMap, GraphQLID, GraphQLList, GraphQLObjectType, GraphQLString, GraphQLInt} from 'graphql';
 import GraphQLDate from 'graphql-date'
 import {GraphQLContext} from '../../lib/graphql';
-import {{{toEntityName EntityName}}} from '../models/{{toEntityName EntityName}}';
+import { {{toEntityName EntityName}} } from '../models/{{toEntityName EntityName}}';
 
 const {{toEntityName EntityName}}Fields: GraphQLFieldConfigMap = {
 {{#Columns}}

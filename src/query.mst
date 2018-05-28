@@ -2,9 +2,9 @@ import {GraphQLFieldConfig, GraphQLList} from 'graphql';
 
 import {Logger, LoggerInterface} from '../../decorators/Logger';
 import {AbstractGraphQLQuery, GraphQLContext, Query} from '../../lib/graphql';
-import {{toEntityName EntityName}} from '../models/{{toEntityName EntityName}}';
-import {{toEntityName EntityName}}Service from '../services/{{toEntityName EntityName}}Service';
-import {{toEntityName EntityName}}Type from '../types/{{toEntityName EntityName}}Type';
+import { {{toEntityName EntityName}} } from '../models/{{toEntityName EntityName}}';
+import { {{toEntityName EntityName}}Service } from '../services/{{toEntityName EntityName}}Service';
+import { {{toEntityName EntityName}}Type } from '../types/{{toEntityName EntityName}}Type';
 
 @Query()
 export class Get{{toEntityName EntityName}}sQuery extends AbstractGraphQLQuery<GraphQLContext<any, any>, {{toEntityName EntityName}}[], any> implements GraphQLFieldConfig {

@@ -53,7 +53,7 @@ export class Engine {
     }
     private createModelFromMetadata(databaseModel: DatabaseModel) {
         this.createHandlebarsHelpers();
-        let templatePath = path.resolve(__dirname, "../../src/type.mst");
+        let templatePath = path.resolve(__dirname, "../../src/entity.mst");
         let template = fs.readFileSync(templatePath, "UTF-8");
         let resultPath = this.Options.resultsPath;
         if (!fs.existsSync(resultPath)) fs.mkdirSync(resultPath);
@@ -61,7 +61,7 @@ export class Engine {
         if (!this.Options.noConfigs) {
             this.createTsConfigFile(resultPath);
             this.createTypeOrmConfig(resultPath);
-            entitesPath = path.resolve(resultPath, "./type");
+            entitesPath = path.resolve(resultPath, "./entity");
             if (!fs.existsSync(entitesPath)) fs.mkdirSync(entitesPath);
         }
         let compliedTemplate = Handlebars.compile(template, { noEscape: true });
@@ -95,7 +95,7 @@ export class Engine {
             }
             let resultFilePath = path.resolve(
                 entitesPath,
-                casedFileName + ".ts"
+                casedFileName + '' + ".ts"
             );
             let rendered = compliedTemplate(element);
             fs.writeFileSync(resultFilePath, rendered, {

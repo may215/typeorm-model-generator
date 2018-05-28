@@ -1,6 +1,6 @@
 import {EntityRepository, Repository} from 'typeorm';
 
-import {{{toEntityName EntityName}}} from '../models/{{toEntityName EntityName}}';
+import { {{toEntityName EntityName}} } from '../models/{{toEntityName EntityName}}';
 
 @EntityRepository({{toEntityName EntityName}})
 export class {{toEntityName EntityName}}Repository extends Repository<{{toEntityName EntityName}}> {

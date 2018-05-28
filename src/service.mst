@@ -3,8 +3,8 @@ import {OrmRepository} from 'typeorm-typedi-extensions';
 
 import {EventDispatcher, EventDispatcherInterface} from '../../decorators/EventDispatcher';
 import {Logger, LoggerInterface} from '../../decorators/Logger';
-import {{toEntityName EntityName}} from '../models/{{toEntityName EntityName}}';
-import {{toEntityName EntityName}}Repository from '../repositories/{{toEntityName EntityName}}Repository';
+import { {{toEntityName EntityName}} } from '../models/{{toEntityName EntityName}}';
+import { {{toEntityName EntityName}}Repository } from '../repositories/{{toEntityName EntityName}}Repository';
 import {events} from '../subscribers/events';
 
 @Service()
