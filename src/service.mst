@@ -1,0 +1,49 @@
+import {Service} from 'typedi';
+import {OrmRepository} from 'typeorm-typedi-extensions';
+
+import {EventDispatcher, EventDispatcherInterface} from '../../decorators/EventDispatcher';
+import {Logger, LoggerInterface} from '../../decorators/Logger';
+import {{toEntityName EntityName}} from '../models/{{toEntityName EntityName}}';
+import {{toEntityName EntityName}}Repository from '../repositories/{{toEntityName EntityName}}Repository';
+import {events} from '../subscribers/events';
+
+@Service()
+export class {{toEntityName EntityName}}Service {
+
+    constructor(
+        @OrmRepository() private {{toPropertyName EntityName}}Repository: {{toEntityName EntityName}}Repository,
+        @EventDispatcher() private eventDispatcher: EventDispatcherInterface,
+        @Logger(__filename) private log: LoggerInterface
+    ) {
+    }
+
+    public find(): Promise<{{toEntityName EntityName}}[]> {
+        this.log.info('Find all {{EntityName}}s');
+        return this.{{toPropertyName EntityName}}Repository.find({relations: ['pets']});
+    }
+
+    public findOne(id: string): Promise<{{toEntityName EntityName}} | undefined> {
+        this.log.info('Find all {{EntityName}}s');
+        return this.{{toPropertyName EntityName}}Repository.findOne({id});
+    }
+
+    public async create({{EntityName}}: {{toEntityName EntityName}}): Promise<{{toEntityName EntityName}}> {
+        this.log.info('Create a new {{EntityName}} => ', {{EntityName}}.toString());
+        const new{{toEntityName EntityName}} = await this.{{toPropertyName EntityName}}Repository.save({{EntityName}});
+        this.eventDispatcher.dispatch(events.{{EntityName}}.created, new{{toEntityName EntityName}});
+        return new{{toEntityName EntityName}};
+    }
+
+    public update(id: string, {{EntityName}}: {{toEntityName EntityName}}): Promise<{{toEntityName EntityName}}> {
+        this.log.info('Update a {{EntityName}}');
+        {{EntityName}}.id = id;
+        return this.{{toPropertyName EntityName}}Repository.save({{EntityName}});
+    }
+
+    public async delete(id: string): Promise<void> {
+        this.log.info('Delete a {{EntityName}}');
+        await this.{{toPropertyName EntityName}}Repository.delete(id);
+        return;
+    }
+
+}

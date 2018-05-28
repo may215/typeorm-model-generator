@@ -1,0 +1,25 @@
+import {GraphQLFieldConfigMap, GraphQLID, GraphQLList, GraphQLObjectType, GraphQLString, GraphQLInt} from 'graphql';
+import GraphQLDate from 'graphql-date'
+import {GraphQLContext} from '../../lib/graphql';
+import {{{toEntityName EntityName}}} from '../models/{{toEntityName EntityName}}';
+
+const {{toEntityName EntityName}}Fields: GraphQLFieldConfigMap = {
+{{#Columns}}
+    {{name}}: {
+        type: GraphQL{{toEntityName ts_type}},
+        description: '',
+    },
+{{/Columns}}
+
+};
+
+export const {{toEntityName EntityName}}Type = new GraphQLObjectType({
+    name: '{{toEntityName EntityName}}',
+    description: 'A single {{toEntityName EntityName}}.',
+});
+
+export const OwnerType = new GraphQLObjectType({
+    name: 'Owner',
+    description: 'The owner of a {{EntityName}}',
+    fields: () => ({...{{toEntityName EntityName}}Fields, ...{}}),
+});

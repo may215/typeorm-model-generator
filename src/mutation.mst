@@ -1,0 +1,38 @@
+import {plainToClass} from 'class-transformer';
+import {GraphQLFieldConfig, GraphQLInt, GraphQLNonNull, GraphQLString} from 'graphql';
+
+import {Logger, LoggerInterface} from '../../decorators/Logger';
+import {GraphQLContext, Mutation} from '../../lib/graphql';
+import {AbstractGraphQLMutation} from '../../lib/graphql/AbstractGraphQLMutation';
+import {{toEntityName EntityName}} from '../models/{{toEntityName EntityName}}';
+import {{toEntityName EntityName}}Service from '../services/{{toEntityName EntityName}}Service';
+import {{toEntityName EntityName}}Type from '../types/{{toEntityName EntityName}}Type';
+
+interface Create{{toEntityName EntityName}}MutationArguments {
+{{#Columns}}
+    {{name}}: {{ts_type}};
+{{/Columns}}
+}
+
+@Mutation()
+export class Create{{toEntityName EntityName}}Mutation extends AbstractGraphQLMutation<GraphQLContext<any, any>, {{toEntityName EntityName}}, Create{{toEntityName EntityName}}MutationArguments>
+    implements GraphQLFieldConfig {
+    public type = {{toEntityName EntityName}}Type;
+    public args = {
+        name: {type: new GraphQLNonNull(GraphQLString)},
+        age: {type: new GraphQLNonNull(GraphQLInt)},
+    };
+
+    constructor(
+        private {{toPropertyName EntityName}}Service: {{toEntityName EntityName}}Service,
+        @Logger(__filename) private log: LoggerInterface
+    ) {
+        super();
+    }
+
+    public async run(root: any, args: Create{{toEntityName EntityName}}MutationArguments, context: GraphQLContext<any, any>): Promise<{{toEntityName EntityName}}> {
+        const {{EntityName}} = await this.{{toPropertyName EntityName}}Service.create(plainToClass({{toEntityName EntityName}}, args));
+        this.log.info('Successfully created a new {{EntityName}}');
+        return {{EntityName}};
+    }
+}
