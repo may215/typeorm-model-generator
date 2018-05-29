@@ -62,6 +62,9 @@ export async function createMSSQLModels(filesOrgPath: string, resultsPath: strin
             convertCaseEntity: 'none',
             convertCaseFile: 'none',
             convertCaseProperty: 'none',
+            fileNameSuffix: '',
+            fileNamePrefix: '',
+            templateName: 'entity',
             lazy: false,
             constructor:false
         });
@@ -127,6 +130,9 @@ export async function createPostgresModels(filesOrgPath: string, resultsPath: st
             convertCaseEntity: 'none',
             convertCaseFile: 'none',
             convertCaseProperty: 'none',
+            fileNameSuffix: '',
+            fileNamePrefix: '',
+            templateName: 'entity',
             lazy: false,
             constructor:false
         });
@@ -184,6 +190,9 @@ export async function createSQLiteModels(filesOrgPath: string, resultsPath: stri
             convertCaseEntity: 'none',
             convertCaseFile: 'none',
             convertCaseProperty: 'none',
+            fileNameSuffix: '',
+            fileNamePrefix: '',
+            templateName: 'entity',
             lazy: false,
             constructor:false
         });
@@ -239,6 +248,9 @@ export async function createMysqlModels(filesOrgPath: string, resultsPath: strin
             convertCaseEntity: 'none',
             convertCaseFile: 'none',
             convertCaseProperty: 'none',
+            fileNameSuffix: '',
+            fileNamePrefix: '',
+            templateName: 'entity',
             lazy: false,
             constructor:false
         });
@@ -287,6 +299,9 @@ export async function createMariaDBModels(filesOrgPath: string, resultsPath: str
             convertCaseEntity: 'none',
             convertCaseFile: 'none',
             convertCaseProperty: 'none',
+            fileNameSuffix: '',
+            fileNamePrefix: '',
+            templateName: 'entity',
             lazy: false,
             constructor:false
         });
@@ -338,6 +353,9 @@ export async function createOracleDBModels(filesOrgPath: string, resultsPath: st
             convertCaseEntity: 'none',
             convertCaseFile: 'none',
             convertCaseProperty: 'none',
+            fileNameSuffix: '',
+            fileNamePrefix: '',
+            templateName: 'entity',
             lazy: false,
             constructor:false
         });

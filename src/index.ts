@@ -79,6 +79,22 @@ var argv = Yargs.usage(
         choices: ["pascal", "camel", "none"],
         default: "none"
     })
+    .option("fs", {
+        alias: "file-suffix",
+        describe: "Suffix name to add to the file name",
+        default: ""
+    })
+    .option("fp", {
+        alias: "file-prefix",
+        describe: "Prefix name to add to the file name",
+        default: ""
+    })
+    .option("tm", {
+        alias: "template-name",
+        describe: "The name of the template to use for the generate",
+        choices: ["entity", "mutation", "query", "repository", "service", "type"],
+        default: "entity"
+    })
     .option("lazy", {
         describe: "Generate lazy relations",
         boolean: true,
@@ -145,6 +161,9 @@ let engine = new Engine(driver, {
     convertCaseFile: argv.cf,
     convertCaseEntity: argv.ce,
     convertCaseProperty: argv.cp,
+    fileNameSuffix: argv.fs,
+    fileNamePrefix: argv.fp,
+    templateName: argv.tm,
     lazy: argv.lazy,
     constructor: argv.constructor
 });

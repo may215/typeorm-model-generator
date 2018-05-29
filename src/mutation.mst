@@ -15,7 +15,8 @@ interface Create{{toEntityName EntityName}}MutationArguments {
 }
 
 @Mutation()
-export class Create{{toEntityName EntityName}}Mutation extends AbstractGraphQLMutation<GraphQLContext<any, any>, {{toEntityName EntityName}}, Create{{toEntityName EntityName}}MutationArguments>
+export class Create{{toEntityName EntityName}}Mutation extends AbstractGraphQLMutation<GraphQLContext<any, any>, {{toEntityName EntityName}},
+    Create{{toEntityName EntityName}}MutationArguments>
     implements GraphQLFieldConfig {
     public type = {{toEntityName EntityName}}Type;
     public args = {

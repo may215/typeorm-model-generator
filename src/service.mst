@@ -22,7 +22,7 @@ export class {{toEntityName EntityName}}Service {
         return this.{{toPropertyName EntityName}}Repository.find({relations: ['pets']});
     }
 
-    public findOne(id: string): Promise<{{toEntityName EntityName}} | undefined> {
+    public findOne(id: number): Promise<{{toEntityName EntityName}} | undefined> {
         this.log.info('Find all {{EntityName}}s');
         return this.{{toPropertyName EntityName}}Repository.findOne({id});
     }
@@ -34,7 +34,7 @@ export class {{toEntityName EntityName}}Service {
         return new{{toEntityName EntityName}};
     }
 
-    public update(id: string, {{EntityName}}: {{toEntityName EntityName}}): Promise<{{toEntityName EntityName}}> {
+    public update(id: number, {{EntityName}}: {{toEntityName EntityName}}): Promise<{{toEntityName EntityName}}> {
         this.log.info('Update a {{EntityName}}');
         {{EntityName}}.id = id;
         return this.{{toPropertyName EntityName}}Repository.save({{EntityName}});

@@ -1,7 +1,7 @@
 {
     "name": "typeorm-model-generator",
     "version": "0.2.16",
-    "description": "Generates models for TypeORM from existing databases.",
+    "description": "Generates models/types/services/repositories/mutations/queries for TypeORM from existing databases.",
     "bin": "bin/typeorm-model-generator",
     "scripts": {
         "setup": "npm install  && typings install",

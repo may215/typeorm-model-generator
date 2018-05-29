@@ -53,7 +53,7 @@ export class Engine {
     }
     private createModelFromMetadata(databaseModel: DatabaseModel) {
         this.createHandlebarsHelpers();
-        let templatePath = path.resolve(__dirname, "../../src/entity.mst");
+        let templatePath = path.resolve(__dirname, "../../src/" + this.Options.templateName + ".mst");
         let template = fs.readFileSync(templatePath, "UTF-8");
         let resultPath = this.Options.resultsPath;
         if (!fs.existsSync(resultPath)) fs.mkdirSync(resultPath);
@@ -61,7 +61,7 @@ export class Engine {
         if (!this.Options.noConfigs) {
             this.createTsConfigFile(resultPath);
             this.createTypeOrmConfig(resultPath);
-            entitesPath = path.resolve(resultPath, "./entity");
+            entitesPath = path.resolve(resultPath, "./" + this.Options.templateName);
             if (!fs.existsSync(entitesPath)) fs.mkdirSync(entitesPath);
         }
         let compliedTemplate = Handlebars.compile(template, { noEscape: true });
@@ -95,7 +95,7 @@ export class Engine {
             }
             let resultFilePath = path.resolve(
                 entitesPath,
-                casedFileName + '' + ".ts"
+                this.Options.fileNamePrefix + casedFileName + this.Options.fileNameSuffix + ".ts"
             );
             let rendered = compliedTemplate(element);
             fs.writeFileSync(resultFilePath, rendered, {
@@ -269,6 +269,9 @@ export interface EngineOptions {
     convertCaseFile: "pascal" | "param" | "camel" | "none";
     convertCaseEntity: "pascal" | "camel" | "none";
     convertCaseProperty: "pascal" | "camel" | "none";
+    fileNameSuffix: string,
+    fileNamePrefix: string,
+    templateName: "entity" | "mutation" | "query" | "repository" | "service" | "type",
     lazy: boolean;
     constructor: boolean;
 }

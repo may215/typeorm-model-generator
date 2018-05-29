@@ -5,7 +5,7 @@ export class ColumnInfo {
     default: string | null = null;
     is_nullable: boolean = false;
     is_unique: boolean = false;
-    graph_ql_type: "String" | "ID" | "Number";
+    // graph_ql_type: "String" | "ID" | "Number";
     ts_type:
         | "number"
         | "string"
